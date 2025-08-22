@@ -8,7 +8,11 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
 
-//the route below automatically creates all required endpoints listed. 
+
 Route::prefix('v1')->group(function () {
-    Route::apiResource('invoices', InvoiceController::class);
+    Route::get('invoices', [InvoiceController::class, 'index']);
+    Route::post('invoices', [InvoiceController::class, 'store']);
+    Route::get('invoices/{id}', [InvoiceController::class, 'show']);
+    Route::put('invoices/{id}', [InvoiceController::class, 'update']);
+    Route::delete('invoices/{id}', [InvoiceController::class, 'destroy']);
 });

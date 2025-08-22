@@ -1,5 +1,4 @@
 <?php
-// app/Models/Invoice.php
 
 namespace App\Models;
 
